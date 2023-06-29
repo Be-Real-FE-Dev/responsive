@@ -168,7 +168,6 @@ const updateWidth = () => {
   const newSlideCount = carouselData[currentSlideId].length;
   size = $slideItems[0].clientWidth + slideMargin;
   const slideWidth = size * newSlideCount + 'px';
-  console.log(size, newSlideCount);
   $innerSlide.style.width = slideWidth;
 };
 
