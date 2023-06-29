@@ -1,31 +1,31 @@
 const carouselData = {
   s1: [
     {
-      url: './images/juwerly1.png',
+      url: './images/juwerly1.avif',
       hashTag: 'BEST',
       title: 'DIOR TRIBALES 이어링',
       price: '550,000',
     },
     {
-      url: './images/juwerly2.png',
+      url: './images/juwerly2.webp',
       hashTag: 'NEW',
       title: 'sousles etoiles 네크리스',
       price: '1,000,000',
     },
     {
-      url: './images/juwerly3.png',
+      url: './images/juwerly3.avif',
       hashTag: "J'ADIOR",
       title: "골드 마감 빈티지 메탈 J'ADIOR 초커",
       price: '425,000',
     },
     {
-      url: './images/juwerly4.png',
+      url: './images/juwerly4.avif',
       hashTag: "J'ADIOR",
       title: "골드 마감 빈티지 메탈 J'ADIOR 초커",
       price: '425,000',
     },
     {
-      url: './images/juwerly1.png',
+      url: './images/juwerly5.avif',
       hashTag: 'NEW',
       title: 'sousles etoiles 링',
       price: '425,000',
@@ -63,6 +63,38 @@ const carouselData = {
       price: '425,000',
     },
   ],
+  s3: [
+    {
+      url: './images/lady1.png',
+      hashTag: 'NEW',
+      title: 'MEDIUM LADY D-LITE BAG',
+      price: '3,900,000',
+    },
+    {
+      url: './images/lady2.png',
+      hashTag: 'NEW',
+      title: 'MEDIUM LADY D-LITE BAG',
+      price: '3,900,000',
+    },
+    {
+      url: './images/lady3.png',
+      hashTag: 'Fuchsia',
+      title: 'MEDIUM LADY D-LITE BAG',
+      price: '4,100,000',
+    },
+    {
+      url: './images/lady4.avif',
+      hashTag: 'Black',
+      title: 'MEDIUM LADY DIOR BAG',
+      price: '5,300,000',
+    },
+    {
+      url: './images/lady5.avif',
+      hashTag: 'Latte Grained Cannage Calfskin',
+      title: 'SMALL LADY DIOR BAG',
+      price: '4,800,000',
+    },
+  ],
 };
 
 const $slider = document.querySelector('.slider-wrap');
@@ -73,13 +105,13 @@ const $nextBtn = document.querySelector('.next');
 const $tabBtn = document.querySelectorAll('.selection-tab li a');
 
 const slideMargin = 20;
-let currentSlideId = 's2';
+let currentSlideId = 's1';
 let currentIdx = 0;
 let slideCount = carouselData[currentSlideId].length;
 let size = 0;
 let isMoving = false;
 
-const render = (slideId = 's2') => {
+const render = (slideId = 's1') => {
   currentIdx = 0;
   const $innerSlide = document.querySelector('.inner-slide');
   $innerSlide.innerHTML = '';
