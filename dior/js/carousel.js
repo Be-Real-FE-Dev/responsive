@@ -73,13 +73,13 @@ const $nextBtn = document.querySelector('.next');
 const $tabBtn = document.querySelectorAll('.selection-tab li a');
 
 const slideMargin = 20;
-let currentSlideId = 's1';
+let currentSlideId = 's2';
 let currentIdx = 0;
 let slideCount = carouselData[currentSlideId].length;
 let size = 0;
 let isMoving = false;
 
-const render = (slideId = 's1') => {
+const render = (slideId = 's2') => {
   currentIdx = 0;
   const $innerSlide = document.querySelector('.inner-slide');
   $innerSlide.innerHTML = '';
