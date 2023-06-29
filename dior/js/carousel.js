@@ -1,125 +1,184 @@
-let slider = document.querySelector('#s1');
-let innerSlide = document.querySelector('#s1 .inner-slide');
-let slideItems = document.querySelectorAll('#s1 .inner-slide .item');
-const allSlider = document.querySelectorAll('.slider-wrap');
+const carouselData = {
+  s1: [
+    {
+      url: './images/juwerly1.png',
+      hashTag: 'BEST',
+      title: 'DIOR TRIBALES 이어링',
+      price: '550,000',
+    },
+    {
+      url: './images/juwerly2.png',
+      hashTag: 'NEW',
+      title: 'sousles etoiles 네크리스',
+      price: '1,000,000',
+    },
+    {
+      url: './images/juwerly3.png',
+      hashTag: "J'ADIOR",
+      title: "골드 마감 빈티지 메탈 J'ADIOR 초커",
+      price: '425,000',
+    },
+    {
+      url: './images/juwerly4.png',
+      hashTag: "J'ADIOR",
+      title: "골드 마감 빈티지 메탈 J'ADIOR 초커",
+      price: '425,000',
+    },
+    {
+      url: './images/juwerly1.png',
+      hashTag: 'NEW',
+      title: 'sousles etoiles 링',
+      price: '425,000',
+    },
+  ],
+  s2: [
+    {
+      url: './images/bag1.jpeg',
+      hashTag: 'BEST',
+      title: 'DIOR TRIBALES 이어링',
+      price: '550,000',
+    },
+    {
+      url: './images/bag2.webp',
+      hashTag: 'NEW',
+      title: 'sousles etoiles 네크리스',
+      price: '1,000,000',
+    },
+    {
+      url: './images/bag3.webp',
+      hashTag: "J'ADIOR",
+      title: "골드 마감 빈티지 메탈 J'ADIOR 초커",
+      price: '425,000',
+    },
+    {
+      url: './images/bag4.webp',
+      hashTag: "J'ADIOR",
+      title: "골드 마감 빈티지 메탈 J'ADIOR 초커",
+      price: '425,000',
+    },
+    {
+      url: './images/bag5.jpeg',
+      hashTag: 'NEW',
+      title: 'sousles etoiles 링',
+      price: '425,000',
+    },
+  ],
+};
 
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
+const $slider = document.querySelector('.slider-wrap');
+const $innerSlide = $slider.querySelector('.inner-slide');
+const $slideItems = $slider.querySelectorAll('.item');
+const $prevBtn = document.querySelector('.prev');
+const $nextBtn = document.querySelector('.next');
+const $tabBtn = document.querySelectorAll('.selection-tab li a');
 
-let currentIdx = 0;
-let slideCount = slideItems.length;
-let allSlidesCount = 0;
 const slideMargin = 20;
-const size = slideItems[0].clientWidth + slideMargin;
+let currentSlideId = 's1';
+let currentIdx = 0;
+let slideCount = carouselData[currentSlideId].length;
+let size = 0;
 let isMoving = false;
 
-// tabcontrol
-const tabBtn = document.querySelectorAll('.selection-tab li a');
-tabControl();
-function tabControl() {
-  for (let i = 0; i < 3; i++) {
-    tabBtn[i].addEventListener('click', (e) => {
-      e.preventDefault();
+const render = (slideId = 's1') => {
+  currentIdx = 0;
+  const $innerSlide = document.querySelector('.inner-slide');
+  $innerSlide.innerHTML = '';
 
-      allSlider.forEach((item) => {
-        // tabBtn의 id와 slider-wrap의 id가 같으면 'on'클래스 추가. + 변수 재할당
-        if (tabBtn[i].dataset.id === item.id) {
-          item.classList.add('on');
+  carouselData[slideId].map((data) => {
+    $innerSlide.insertAdjacentHTML(
+      'beforeend',
+      `
+    <div class="item">
+    <div class="selection-tmb">
+        <div style="width:100%; height:100%;">
+          <img src=${data.url} style="width:100%; height:100%; object-fit:cover;"/>
+        </div>
+        <div class="icons">
+            <a>like</a>
+            <a>bag</a>
+            <a>search</a>
+        </div>
+    </div>
+    <ul class="info">
+        <li class="hash">#${data.hashTag}</li>
+        <li class="tit">${data.title}</li>
+        <li class="cost">${data.price}</li>
+        <li><a href="#" class="btn-primary">ORDER</a></li>
+    </ul>
+  </div>
+  `
+    );
+  });
 
-          // -- 재할당 --
-          slider = document.querySelector('#' + item.id);
-          innerSlide = document.querySelector('#' + item.id + ' .inner-slide');
-          slideItems = document.querySelectorAll(
-            '#' + item.id + ' .inner-slide .item'
-          );
-          slideCount = slideItems.length;
-          currentIdx = 0;
+  makeClone();
+};
 
-          deleteClones(slideItems, item.id);
-          makeClone();
-        } else {
-          item.classList.remove('on');
-        }
-      });
-    });
-  }
-}
+const makeClone = () => {
+  const $slideItems = $innerSlide.querySelectorAll('.item');
 
-function deleteClones(newSlideItems, item_id) {
-  for (let i = 0; i < newSlideItems.length; i++) {
-    const lists = newSlideItems[i].classList;
-    for (let j = 0; j < lists.length; j++) {
-      if (lists[j] == 'clone') {
-        newSlideItems[i].remove(); // ** slideItems is not an array **
-        console.log(newSlideItems); // 15
-      }
-    }
-  }
-
-  // -- 재할당 --
-  slideItems = document.querySelectorAll('#' + item_id + ' .inner-slide .item');
-  console.log(slideItems); // 5
-  slideCount = slideItems.length; // 5
-}
-
-function makeClone() {
   for (let i = 0; i < slideCount; i++) {
-    // a.cloneNode(true) : a를 복사한다. true의 뜻 =자식요소까지 있으면 모두 복사한다.
-    let cloneSlide = slideItems[i].cloneNode(true);
+    let cloneSlide = $slideItems[i].cloneNode(true); // cloneNode(true) : a를 복사한다. true의 뜻 => 자식요소까지 있으면 모두 복사한다.
     cloneSlide.classList.add('clone');
-    innerSlide.append(cloneSlide);
+    $innerSlide.append(cloneSlide);
   }
   for (let i = slideCount - 1; i >= 0; i--) {
-    let cloneSlide = slideItems[i].cloneNode(true);
+    let cloneSlide = $slideItems[i].cloneNode(true);
     cloneSlide.classList.add('clone');
-    innerSlide.prepend(cloneSlide);
+    $innerSlide.prepend(cloneSlide);
   }
 
   updateWidth();
   setPosition();
-}
+};
 
-// makeClone's functions
-function updateWidth() {
-  let currentSlides = document.querySelectorAll('#s1 .inner-slide .item');
-  let newSlideCount = currentSlides.length;
-  const newWidth = size * newSlideCount - slideMargin + 'px';
-  innerSlide.style.width = newWidth;
-  allSlidesCount = newSlideCount;
-}
+const updateWidth = () => {
+  const $slideItems = $slider.querySelectorAll('.item');
+  const newSlideCount = carouselData[currentSlideId].length;
+  size = $slideItems[0].clientWidth + slideMargin;
+  const slideWidth = size * newSlideCount + 'px';
+  console.log(size, newSlideCount);
+  $innerSlide.style.width = slideWidth;
+};
 
-function setPosition() {
-  innerSlide.style.transform = 'translateX(' + -size * slideCount + 'px)';
-}
+const setPosition = () => {
+  $innerSlide.style.transform = 'translateX(' + -size * slideCount + 'px)';
+};
 
-// EVENT: btn click
-nextBtn.addEventListener('click', () => {
+const moveSlide = (num) => {
+  currentIdx = num;
+  const moveWitdh = -size * slideCount + -num * size;
+  $innerSlide.style.transform = 'translateX(' + moveWitdh + 'px)';
+  $innerSlide.style.transition = '0.5s ease-out';
+};
+
+// EVENT
+$nextBtn.addEventListener('click', () => {
   if (isMoving) return;
   moveSlide(currentIdx + 1);
   isMoving = true;
 });
-prevBtn.addEventListener('click', () => {
+
+$prevBtn.addEventListener('click', () => {
   if (isMoving) return;
   moveSlide(currentIdx - 1);
   isMoving = true;
 });
 
-innerSlide.addEventListener('transitionend', () => {
-  console.log(currentIdx, slideCount);
+$innerSlide.addEventListener('transitionend', () => {
   // loop
   if (currentIdx === slideCount || -currentIdx === slideCount) {
-    innerSlide.style.transition = 'none';
-    innerSlide.style.transform = 'translateX(' + -size * slideCount + 'px)';
+    $innerSlide.style.transition = 'none';
+    $innerSlide.style.transform = 'translateX(' + -size * slideCount + 'px)';
     currentIdx = 0;
   }
   isMoving = false;
 });
 
-function moveSlide(num) {
-  currentIdx = num;
-  const moveWitdh = -size * slideCount + -num * size;
-  innerSlide.style.transform = 'translateX(' + moveWitdh + 'px)';
-  innerSlide.style.transition = '0.5s ease-out';
-}
+$tabBtn.forEach((btn) =>
+  btn.addEventListener('click', (e) => {
+    e.preventDefault(); // prevent scroll top
+    render(e.target.dataset.id);
+  })
+);
 
-window.addEventListener('DOMContentLoaded', () => makeClone());
+window.addEventListener('DOMContentLoaded', () => render());

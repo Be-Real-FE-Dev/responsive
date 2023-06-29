@@ -1,0 +1,66 @@
+{
+  "s1": [
+    {
+      "url": "./images/juwerly1.png",
+      "hashTag": "BEST",
+      "title": "DIOR TRIBALES 이어링",
+      "price": "550,000"
+    },
+    {
+      "url": "./images/juwerly2.png",
+      "hashTag": "NEW",
+      "title": "sousles etoiles 네크리스",
+      "price": "1,000,000"
+    },
+    {
+      "url": "./images/juwerly3.png",
+      "hashTag": "J'ADIOR",
+      "title": "골드 마감 빈티지 메탈 J'ADIOR 초커",
+      "price": "425,000"
+    },
+    {
+      "url": "./images/juwerly4.png",
+      "hashTag": "J'ADIOR",
+      "title": "골드 마감 빈티지 메탈 J'ADIOR 초커",
+      "price": "425,000"
+    },
+    {
+      "url": "./images/juwerly1.png",
+      "hashTag": "NEW",
+      "title": "sousles etoiles 링",
+      "price": "425,000"
+    }
+  ],
+  "s2": [
+    {
+      "url": "./images/bag1.jpeg",
+      "hashTag": "BEST",
+      "title": "DIOR TRIBALES 이어링",
+      "price": "550,000"
+    },
+    {
+      "url": "./images/bag2.webp",
+      "hashTag": "NEW",
+      "title": "sousles etoiles 네크리스",
+      "price": "1,000,000"
+    },
+    {
+      "url": "./images/bag3.webp",
+      "hashTag": "J'ADIOR",
+      "title": "골드 마감 빈티지 메탈 J'ADIOR 초커",
+      "price": "425,000"
+    },
+    {
+      "url": "./images/bag4.webp",
+      "hashTag": "J'ADIOR",
+      "title": "골드 마감 빈티지 메탈 J'ADIOR 초커",
+      "price": "425,000"
+    },
+    {
+      "url": "./images/bag5.jpeg",
+      "hashTag": "NEW",
+      "title": "sousles etoiles 링",
+      "price": "425,000"
+    }
+  ]
+}
