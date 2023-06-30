@@ -191,11 +191,11 @@ h2 {
 @mixin animation(
   $animation,
   $duration,
-  $timing,
-  $delay,
-  $count,
-  $direction,
-  $fillmode
+  $timing: ease,
+  $delay: 0,
+  $count: 1,
+  $direction: normal,
+  $fillmode: none
 ) {
   animation-name: $animation;
   animation-duration: $duration;

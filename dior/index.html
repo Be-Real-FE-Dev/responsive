@@ -7,6 +7,9 @@
     <title>Dior</title>
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://kit.fontawesome.com/95d878f703.js" crossorigin="anonymous"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/scrolla.jquery.min.js"></script>
+    <script src="./js/main.js"></script>
 </head>
 <body>
     <div class="bgcolor"></div>
@@ -31,7 +34,7 @@
             </select>
         </div>    
     </header>
-    <section class="visual">
+    <section class="visual animate" data-animate="motion">
         <div class="main-text">
             <p class="d01">19 F/W COLLECTION</p>
             <p class="d02">Cruise show<br/>Escaramuzas</p>
@@ -39,7 +42,7 @@
             <a href="#" class="btn-primary">DISCOVER</a>
         </div>
     </section>
-    <section class="history">
+    <section class="history animate" data-animate="motion">
         <div class="history-img">
             <div class="imgBox"><img src="./images/history.png" alt=""></div> 
         </div>
@@ -82,7 +85,7 @@
     <section class="insights">
         <h2>INSIGHTS</h2>
         <div class="content" style="margin-bottom: 50px;">
-            <div class="insight-img1">
+            <div class="insight-img1 animate" data-animate="motion">
                 <div class="imgBox"><img src="./images/insight1.jpg" alt=""></div> 
             </div>
             <div class="insight-txt">
@@ -105,7 +108,7 @@
                 </p>
                 <a href="#" class="btn-primary">Find Out More</a>
             </div>
-            <div class="insight-img2">
+            <div class="insight-img2 animate" data-animate="motion">
                 <div class="imgBox"><img src="./images/insight2.png" alt=""></div> 
             </div>
         </div>
@@ -131,7 +134,10 @@
             <div class="slider-wrap on">
                 <div class="inner-slide">
                     <div class="item">
-                        <div class="selection-tmb" style="background: center / cover no-repeat url(./images/col1.webp);">
+                        <div class="selection-tmb">
+                            <div class="tmb-wrap" style="width:250px; height:350px;">
+                                <img src="./images/col1.webp" style="width:100%; height:100%; object-fit:cover;"/>
+                            </div>
                             <div class="icons">
                                 <a>like</a>
                                 <a>bag</a>
@@ -146,7 +152,10 @@
                         </ul>
                     </div>
                     <div class="item">
-                        <div class="selection-tmb" style="background: center / cover no-repeat url(./images/col2.webp);">
+                        <div class="selection-tmb">
+                            <div class="tmb-wrap" style="width:250px; height:350px;">
+                                <img src="./images/col2.webp" style="width:100%; height:100%; object-fit:cover;"/>
+                            </div>
                             <div class="icons">
                                 <a>like</a>
                                 <a>bag</a>
@@ -334,8 +343,8 @@
             COPYRIGHT © CHRISTIAN DIOR COUTURE KOREA ALL RIGHTS RESERVED.</p>
         </div>
     </section>
-    <script src="./js/carousel.js"></script>
-    <script src="./js/collection-carousel.js"></script>
+    
+    <script type="module" src="./js/carousel.js"></script>
     <script src="./js/video-carousel.js"></script>
     <script src="./js/draggable.js"></script>
 </body>

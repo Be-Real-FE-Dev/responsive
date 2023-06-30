@@ -4,6 +4,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nanum+Myeongjo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nanum+Myeongjo&display=swap");
 body {
   position: relative;
   -webkit-font-smoothing: antialiased;
@@ -330,6 +333,196 @@ h2 {
   font-family: "DM Serif Display", serif;
 }
 
+body {
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+span {
+  display: block;
+}
+
+div,
+span,
+article,
+section,
+header,
+footer,
+aside,
+p,
+ul,
+li,
+fieldset,
+legend,
+label,
+a,
+nav,
+form,
+button {
+  box-sizing: border-box;
+  /* content-box */
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  max-width: 100%;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(68, 63, 58);
+}
+
+button {
+  border: 0;
+  background: transparent;
+}
+
+html {
+  font-family: "Readex Pro", sans-serif;
+  color: #555;
+  line-height: 1.2;
+}
+
+h2 {
+  font-family: "DM Serif Display", serif;
+}
+
+@keyframes slide-r {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+}
+@keyframes slide-l {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+}
+@keyframes slideY {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+}
 .btn-primary {
   display: inline-block;
   height: 48px;
@@ -462,6 +655,33 @@ header .menu-right select {
   margin-bottom: 50px;
   line-height: 1.5;
 }
+.visual.motion .d01 {
+  animation-name: slideY;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+}
+.visual.motion .d02 {
+  animation-name: slideY;
+  animation-duration: 1.2s;
+  animation-timing-function: ease;
+  animation-delay: 0;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+}
+.visual.motion .d03 {
+  animation-name: slideY;
+  animation-duration: 1.6s;
+  animation-timing-function: ease;
+  animation-delay: 0;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+}
 
 .history {
   display: flex;
@@ -489,6 +709,15 @@ header .menu-right select {
 .history .history-txt p {
   line-height: 1.5;
   white-space: pre-line;
+}
+.history.motion .history-img {
+  animation-name: slide-l;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
 }
 
 .selection,
@@ -567,11 +796,20 @@ header .menu-right select {
   height: 350px;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 }
 .selection .slider .slider-wrap .inner-slide .item .selection-tmb img,
 .collection .slider .slider-wrap .inner-slide .item .selection-tmb img {
   display: block;
   margin: 0 auto;
+}
+.selection .slider .slider-wrap .inner-slide .item .selection-tmb .tmb-wrap,
+.collection .slider .slider-wrap .inner-slide .item .selection-tmb .tmb-wrap {
+  transition: all 0.7s;
+}
+.selection .slider .slider-wrap .inner-slide .item .selection-tmb:hover .tmb-wrap,
+.collection .slider .slider-wrap .inner-slide .item .selection-tmb:hover .tmb-wrap {
+  scale: 1.1;
 }
 .selection .slider .slider-wrap .inner-slide .item .selection-tmb:hover .icons,
 .collection .slider .slider-wrap .inner-slide .item .selection-tmb:hover .icons {
@@ -753,9 +991,29 @@ header .menu-right select {
 .insights2 .content .insight-img1 img {
   width: 100%;
 }
+.insights .content .insight-img1.motion,
+.insights2 .content .insight-img1.motion {
+  animation-name: slide-l;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+}
 .insights .content .insight-img2,
 .insights2 .content .insight-img2 {
   flex: 1 1 65rem;
+}
+.insights .content .insight-img2.motion,
+.insights2 .content .insight-img2.motion {
+  animation-name: slide-r;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
 }
 .insights .content .insight-txt,
 .insights2 .content .insight-txt {

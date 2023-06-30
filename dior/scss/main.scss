@@ -1,5 +1,6 @@
 @import './default';
 @import './media';
+@import './mixin';
 
 @function icon($name, $color) {
   $iconList: (
@@ -152,6 +153,18 @@ header {
       line-height: 1.5;
     }
   }
+
+  &.motion {
+    .d01 {
+      @include animation(slideY, 1s);
+    }
+    .d02 {
+      @include animation(slideY, 1.2s);
+    }
+    .d03 {
+      @include animation(slideY, 1.6s);
+    }
+  }
 }
 
 .history {
@@ -180,6 +193,12 @@ header {
       white-space: pre-line;
     }
   }
+
+  &.motion {
+    .history-img {
+      @include animation(slide-l, 1s, ease-out);
+    }
+  }
 }
 
 .selection,
@@ -193,6 +212,7 @@ header {
       display: flex;
       justify-content: space-between;
       text-transform: uppercase;
+
       li {
         a {
           color: $light-color;
@@ -246,14 +266,23 @@ header {
             height: 350px;
             overflow: hidden;
             position: relative;
-
+            cursor: pointer;
             img {
               display: block;
               margin: 0 auto;
             }
-            &:hover .icons {
-              bottom: 0;
+            .tmb-wrap {
+              transition: all 0.7s;
             }
+            &:hover {
+              .tmb-wrap {
+                scale: 1.1;
+              }
+              .icons {
+                bottom: 0;
+              }
+            }
+
             .icons {
               background: $dark;
               padding: 0.8rem 0;
@@ -420,9 +449,17 @@ header {
       img {
         width: 100%;
       }
+
+      &.motion {
+        @include animation(slide-l, 1s, ease-out);
+      }
     }
     .insight-img2 {
       flex: 1 1 65rem;
+
+      &.motion {
+        @include animation(slide-r, 1s, ease-out);
+      }
     }
     .insight-txt {
       width: 40%;
