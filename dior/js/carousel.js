@@ -208,6 +208,7 @@ $innerSlide.addEventListener('transitionend', () => {
 $tabBtn.forEach((btn) =>
   btn.addEventListener('click', (e) => {
     e.preventDefault(); // prevent scroll top
+    $innerSlide.style.transition = 'none'; // prevent first moving
     render(e.target.dataset.id);
   })
 );
