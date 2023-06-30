@@ -859,4 +859,27 @@ header {
       }
     }
   }
+
+  .banner .banner-content {
+    width: 100%;
+    p {
+      font-size: 2rem;
+    }
+  }
+
+  // footer
+  .footer {
+    .footer-gnb {
+      flex-direction: column;
+      align-items: center;
+      .footer-left {
+        align-items: center;
+        margin-bottom: 40px;
+        ul {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+    }
+  }
 }

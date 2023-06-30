@@ -1159,6 +1159,24 @@ header .menu-right select {
   .film .film-carousel .film-item-wrap .imgBox {
     width: 415px;
   }
+  .banner .banner-content {
+    width: 100%;
+  }
+  .banner .banner-content p {
+    font-size: 2rem;
+  }
+  .footer .footer-gnb {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer .footer-gnb .footer-left {
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  .footer .footer-gnb .footer-left ul {
+    padding-left: 0;
+    text-align: center;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
